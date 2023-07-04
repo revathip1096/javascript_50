@@ -75,4 +75,46 @@ for(let i = 1; i<str.length;i++){
 console.log(result.join(''));
 
 
+//Write a JavaScript program to find the most frequent item in an array.
+const findMostFrequentItem = arr => {
+  const frequencyMap = new Map();
+  arr.forEach(item => {
+    const key = String(item);
+    frequencyMap.set(key, (frequencyMap.get(key) || 0) + 1);
+  });
+  let mostFrequentItem;
+  let maxFrequency = 0;
+  frequencyMap.forEach((frequency, item) => {
+    if (frequency > maxFrequency) {
+      mostFrequentItem = item;
+      maxFrequency = frequency;
+    }
+  });
+  return mostFrequentItem;
+};
+// Test the function
+const array = [1, 'D', 'B', 2, 'B', 'A', 'A', 3, 'B', 1, 'C', 'C'];
+const mostFrequent = findMostFrequentItem(array);
+console.log(`The most frequent item is: ${mostFrequent}`);
+
+
+// Write a JavaScript program that accepts a string as input and swaps the case of each character. For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.
+function swap(str) {
+  let newLetter = '';
+  for (let i = 0; i < str.length; i++) {
+          if (str[i] == str[i].toUpperCase()) {
+              newLetter += str[i].toLowerCase();
+          } else {
+              newLetter += str[i].toUpperCase();
+          }
+      }
+      console.log(newLetter);
+      return newLetter;
+  }
+  console.log(swap('The Quick Brown Fox'));
+
+
+  // Write a JavaScript program that prints the elements of the following array.
+  
+
   
