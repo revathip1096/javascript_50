@@ -114,7 +114,72 @@ function swap(str) {
   console.log(swap('The Quick Brown Fox'));
 
 
-  // Write a JavaScript program that prints the elements of the following array.
-  
+// Write a JavaScript program that prints the elements of the following array.
+const a = [
+  [1, 2, 1, 24],
+  [8, 11, 9, 4],
+  [7, 0, 7, 27],
+  [7, 4, 28, 14],
+  [3, 10, 26, 7]
+];
+
+for (let i = 0; i < a.length; i++) {
+  for (let j = 0; j < a[i].length; j++) {
+    console.log(  `Row ${i}`);
+    console.log(`${a[i][j]}`);
+  }
+} 
+
+
+// Write a JavaScript program to find the sum of squares of a numerical vector.
+const vector = [1, 2, 3, 4, 5];
+const sumOfSquares = vector.reduce((sum, num) => sum + (num ** 2), 0);
+console.log("Sum of squares:", sumOfSquares);
+
+
+//Write a JavaScript program to compute the sum and product of an array of integers.
+const array = [1, 2, 3, 4, 5];
+const sum = array.reduce((total, num) => total + num, 0); 
+const product = array.reduce((total, num) => total * num, 1);
+console.log("Sum:", sum);
+console.log("Product:", product);
+
+
+// Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity).
+const array1 = [1, 2, 3, 2, 4, 5, 1, 3, 4, 5, 6];
+const newArray = array1.filter((element, index, arr) => {
+  return index === arr.indexOf(element);
+});
+console.log(newArray);
+
+
+/* We have the following arrays :color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+o = ["th","st","nd","rd"]
+Write a JavaScript program to display the colors in the following way :
+"1st choice is Blue ."
+"2nd choice is Green."
+"3rd choice is Red." */
+const color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const o = ["th", "st", "nd", "rd"];
+color.forEach((color, index) => {
+  const suffix = o[index <= 3 ? index : 0];
+  console.log(`${index + 1}${suffix} choice is ${color}.`);
+});
+
+
+// Write a JavaScript program to find the leap years in a given range of years.
+const findLeapYears = (startYear, endYear) => {
+  const leapYears = [];
+  for (let year = startYear; year <= endYear; year++) {
+    if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+      leapYears.push(year);
+    }
+  }
+  return leapYears;
+};
+const startYear = 2000;
+const endYear = 2020;
+const leapYears = findLeapYears(startYear, endYear);
+console.log("Leap Years:", leapYears);
 
   
