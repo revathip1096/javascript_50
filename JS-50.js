@@ -385,3 +385,91 @@ const merge_array = (array1, array2) => {
 const array3 = [1, 2, 3];
 const array4 = [2, 30, 1];
 console.log(merge_array(array3, array4));
+
+
+// 31--- Write a JavaScript function to remove a specific element from an array.
+const remove_array_element = (arr, element) => {
+  return arr.filter((value) => value !== element);
+};
+const arr2 = [2, 5, 9, 6];
+const elementToRemove = 5;
+console.log(remove_array_element(arr2, elementToRemove));
+
+
+// 32--- Write a JavaScript function to find an array containing a specific element.
+const contains = (arr, element) => {
+  return arr.includes(element);
+};
+const arr = [2, 5, 9, 6];
+const elementToFind = 5;
+console.log(contains(arr, elementToFind));
+
+
+// 33--- Write a JavaScript script to empty an array while keeping the original.
+const emptyArray = (arr) => {
+  return arr.length = 0;
+};
+const originalArray = [1, 2, 3, 4, 5];
+console.log(originalArray); // [1, 2, 3, 4, 5]
+emptyArray(originalArray);
+console.log(originalArray);
+
+
+// 34--- Write a JavaScript function to get the nth largest element from an unsorted array.
+const nthLargest = (arr, n) => {
+  const sortedArray = arr.sort((a, b) => b - a);
+  return sortedArray[n - 1];
+};
+const arraylength = [43, 56, 23, 89, 88, 90, 99, 652];
+const n = 4;
+console.log(nthLargest(arraylength, n));
+
+
+// 35--- Write a JavaScript function to get random items from an array.
+const getRandomNumber = (arr) => {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+};
+const arrayrandom = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(getRandomNumber(arrayrandom));
+
+
+// 36--- Write a JavaScript function to create a specified number of elements with a pre-filled numeric value array.
+const array_filled = (length, value) => {
+  return Array(length).fill(value);
+};
+console.log(array_filled(6, 0)); 
+console.log(array_filled(4, 11));
+
+
+// 37--- Write a JavaScript function to create a specified number of elements with a pre-filled string value array.
+const array_filled1 = (length, value) => {
+  return Array(length).fill(value);
+};
+console.log(array_filled1(3, 'default value'));
+console.log(array_filled1(4, 'password'));
+
+
+// 38---  Write a JavaScript function to move an array element from one position to another.
+const move = (arr, fromIndex, toIndex) => {
+  const element = arr.splice(fromIndex, 1)[0];
+  arr.splice(toIndex, 0, element);
+  return arr;
+};
+console.log(move([10, 20, 30, 40, 50], 0, 2)); 
+console.log(move([10, 20, 30, 40, 50], -1, -2));
+
+
+// 39--- Write a JavaScript function to filter false, null, 0 and blank values from an array.
+const filter_array_values1 = (arr) => {
+  return arr.filter(Boolean);
+};
+console.log(filter_array_values1([58, '', 'abcd', true, null, false, 0]));
+
+
+// 40--- Write a JavaScript function to generate an array of integer numbers, increasing one from the starting position, of a specified length.
+const array_range = (start, length) => {
+  return Array.from({ length }, (_, index) => start + index);
+};
+console.log(array_range(1, 4));
+console.log(array_range(-6, 4));
