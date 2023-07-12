@@ -182,4 +182,65 @@ const endYear = 2020;
 const leapYears = findLeapYears(startYear, endYear);
 console.log("Leap Years:", leapYears);
 
-  
+
+// Write a JavaScript program to shuffle an array.
+const shuffleArray = array => array.sort(() => Math.random()-0.5);
+const originalArray = [1, 2, 3, 4, 6];
+const shuffledArray = shuffleArray(originalArray);
+console.log("Shuffled Array:", shuffledArray);
+
+
+// Write a JavaScript program to perform a binary search.
+const binarySearch = (array, target) => {
+  let low = 0;
+  let high = array.length - 1;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const midValue = array[mid];
+    if (midValue === target) {
+      return mid; // Found the target
+    } else if (midValue < target) {
+      low = mid + 1; // Continue searching in the right half
+    } else {
+      high = mid - 1; // Continue searching in the left half
+    }
+  }
+  return -1; // Target not found
+};
+const sortedArray = [1, 2, 3, 4, 5, 7, 8, 9];
+const target = 2;
+const resultIndex = binarySearch(sortedArray, target);
+if (resultIndex !== -1) {
+  console.log(`Target ${target} found at index ${resultIndex}`);
+} else {
+  console.log(`Target ${target} not found in the array`);
+}
+
+
+// There are two arrays with individual values. Write a JavaScript program to compute the sum of each individual index value in the given array.
+const computeSum = (array1, array2) => {
+  const result = [];
+  array1.forEach((value, index) => {
+    result.push(value + (array2[index] || 0));
+  });
+  return result;
+};
+const array1 = [1, 0, 2, 3, 4];
+const array2 = [3, 5, 6, 7, 8,];
+const sumArray = computeSum(array1, array2);
+console.log("Result Array:", sumArray);
+
+
+// Write a JavaScript program to find duplicate values in a JavaScript array.
+const findDuplicates = array => {
+  const duplicateValues = [];
+  array.forEach((value, index) => {
+    if (array.indexOf(value) !== index && !duplicateValues.includes(value)) {
+      duplicateValues.push(value);
+    }
+  });
+  return duplicateValues;
+};
+const array = [1, 2, 3, 2, 4, 3, 5, 5, 1];
+const duplicates = findDuplicates(array); 
+console.log("Duplicate values:", duplicates);
