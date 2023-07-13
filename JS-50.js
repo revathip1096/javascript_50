@@ -275,7 +275,7 @@ const findDifference = (arr1, arr2) => {
   const difference = arr1.filter((element) => !arr2.includes(element));
   return difference;
 };
-const arr1 = [1, 2, 3, 4, 5, 7];
+const arr1 = [1, 2, 3, 4, 5];
 const arr2 = [3, 4, 5, 6];
 const difference = findDifference(arr1, arr2);
 console.log(difference);
@@ -473,3 +473,71 @@ const array_range = (start, length) => {
 };
 console.log(array_range(1, 4));
 console.log(array_range(-6, 4));
+
+
+// 41--- Write a JavaScript function to generate an array between two integers of 1 step length.
+const rangeBetween = (start, end) => {
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+};
+console.log(rangeBetween(4, 7));
+console.log(rangeBetween(-4, 7));
+
+
+// 42--- Write a JavaScript function to find unique elements in two arrays.
+const diff = (arr1, arr2) => {
+  const flattenArr2 = arr2.flat(Infinity); 
+  const uniqueElements = [
+    ...new Set([...arr1.map(String), ...flattenArr2.map(String)]),
+  ];
+  return uniqueElements;
+};
+console.log(diff([1, 2, 3], [100, 2, 1, 10]));
+console.log(diff([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]));
+console.log(diff([1, 2, 3], [100, 2, 1, 10]));
+
+
+// 43--- Write a JavaScript function to create an array of arrays, ungrouping the elements in an array produced by zip.
+const unzip = (arr) => arr[0].map((_, i) => arr.map((subArray) => subArray[i]));
+console.log(unzip([['a', 1, true], ['b', 2, false]]));
+console.log(unzip([['a', 1, true], ['b', 2]]));
+
+
+// 44--- Write a JavaScript function to create an object from an array, using the specified key and excluding it from each value.
+const indexOn = (arr, keyFn) =>
+  arr.reduce((obj, item) => {
+    const key = keyFn(item);
+    const value = Object.assign({}, item);
+    delete value[key];
+    obj[key] = value;
+    return obj;
+  }, {});
+console.log(
+  indexOn([{ id: 10, name: 'apple' }, { id: 20, name: 'orange' }], (x) => x.id)
+);
+
+
+// 45--- Write a JavaScript program to find all the unique values in a set of numbers.
+const findUniqueValues = (arr) => [...new Set(arr)];
+console.log(findUniqueValues([1, 2, 2, 3, 4, 4, 5]));
+console.log(findUniqueValues([1, 2, 3, 4, 5]));
+console.log(findUniqueValues([1, -2, -2, 3, 4, -5, -6, -5]));
+
+
+// 46--- Write a JavaScript program to generate all permutations of an array's elements (including duplicates).
+const permutations = (arr) =>
+  arr.reduce(
+    (perms, element) =>
+      perms.flatMap((perm) =>
+        [...Array(perm.length + 1)].map((_, i) =>
+          [...perm.slice(0, i), element, ...perm.slice(i)]
+        )
+      ),
+    [[]]
+  );
+console.log(permutations([1, 33, 5]));
+console.log(permutations([1, 3, 5, 7]));
+console.log(permutations([2, 4]));
+
+
+
+
