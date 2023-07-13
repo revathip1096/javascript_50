@@ -539,5 +539,137 @@ console.log(permutations([1, 3, 5, 7]));
 console.log(permutations([2, 4]));
 
 
+// 47--- Write a JavaScript program to remove all false values from an object or array.
+
+
+// 48--- Write a JavaScript program that takes an array of integers and returns false if every number is not prime. Otherwise, return true.
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+const checkPrimeArray = (arr) => arr.every(isPrime);
+const array5 = [2, 3, 5, 7];
+console.log(`Original array of integers: ${array5.join(",")}`);
+console.log(`In the said array check every number is prime or not! ${checkPrimeArray(array5)}`);
+const array6 = [2, 3, 5, 7, 8];
+console.log(`Original array of integers: ${array6.join(",")}`);
+console.log(`In the said array check every number is prime or not! ${checkPrimeArray(array6)}`);
+
+
+// 49---  Write a JavaScript program that takes an array of numbers and returns the third smallest number.
+const findThirdSmallest = (arr) => {
+  const sortedArray = arr.sort((a, b) => a - b);
+  return sortedArray[2];
+};
+const array7 = [2, 3, 5, 7, 1];
+console.log(`Original array of numbers: ${array7.join(",")}`);
+console.log(`Third smallest number of the said array of numbers: ${findThirdSmallest(array7)}`);
+const array8 = [2, 3, 0, 5, 7, 8, -2, -4];
+console.log(`Original array of numbers: ${array8.join(",")}`);
+console.log(`Third smallest number of the said array of numbers: ${findThirdSmallest(array8)}`);
+
+
+// 50--- Write a JavaScript program that takes an array with mixed data type and calculates the sum of all numbers.
+const calculateSumOfNumbers = (arr) =>
+  arr.reduce((sum, element) => (typeof element === 'number' ? sum + element : sum), 0);
+const array9 = [2, "11", 3, "a2", false, 5, 7, 1];
+console.log(`Original array: ${array9.join(",")}`);
+console.log(`Sum all numbers of the said array: ${calculateSumOfNumbers(array9)}`);
+const array10 = [2, 3, 0, 5, 7, 8, true, false];
+console.log(`Original array: ${array10.join(",")}`);
+console.log(`Sum all numbers of the said array: ${calculateSumOfNumbers(array10)}`);
+
+
+// 51--- Write a JavaScript program to check if an array is a factor chain or not.
+const isFactorChain = (arr) =>
+  arr.every((num, index) => index === 0 || num % arr[index - 1] === 0);
+const array11 = [2, 4, 8, 16, 32];
+console.log(`Original array: ${array11}`);
+console.log("Check the said array is a factor chain or not?");
+console.log(isFactorChain(array11));
+const array12 = [2, 4, 16, 32, 64];
+console.log(`Original array: ${array12}`);
+console.log("Check the said array is a factor chain or not?");
+console.log(isFactorChain(array12));
+const array13 = [2, 4, 16, 32, 68];
+console.log(`Original array: ${array13}`);
+console.log("Check the said array is a factor chain or not?");
+console.log(isFactorChain(array13));
+
+
+// 52--- Write a JavaScript program to get all the indexes where NaN is found in a given array of numbers and NaN.
+const getNaNIndexes = (arr) =>
+  arr.reduce((indexes, num, index) => {
+    if (Number.isNaN(num)) {
+      indexes.push(index);
+    }
+    return indexes;
+  }, []);
+const array14 = [2, NaN, 8, 16, 32];
+console.log(`Original array: ${array14}`);
+console.log("Find all indexes of NaN in the said array:");
+console.log(getNaNIndexes(array14));
+const array15 = [2, 4, NaN, 16, 32, NaN];
+console.log(`Original array: ${array15}`);
+console.log("Find all indexes of NaN in the said array:");
+console.log(getNaNIndexes(array15));
+const array16 = [2, 4, 16, 32];
+console.log(`Original array: ${array16}`);
+console.log("Find all indexes of NaN in the said array:");
+console.log(getNaNIndexes(array16));
+
+
+// 53--- Write a JavaScript program to count the number of arrays inside a given array.
+const countNestedArrays = (arr) =>
+  arr.reduce((count, element) => count + (Array.isArray(element) ? 1 : 0), 0);
+const array17 = [2, 8, [6], 3, 3, 5, 3, 4, [5, 4]];
+console.log(`Number of arrays inside the said array: ${countNestedArrays(array17)}`);
+const array18 = [2, 8, [6, 3, 3], [4], 5, [3, 4, [5, 4]]];
+console.log(`Number of arrays inside the said array: ${countNestedArrays(array18)}`);
+
+
+// 13---  Write a JavaScript program to add items to a blank array and display them.
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add and Display Items</title>
+</head>
+<body>
+  <h2>Add and Display Items</h2>
+  <input type="text" id="inputItem">
+  <button id="addButton">Add Item</button>
+  <button id="displayButton">Display Items</button>
+  <ul id="itemsList"></ul>
+  <script>
+    const itemsArray = [];
+    const addButton = document.getElementById('addButton');
+    addButton.addEventListener('click', () => {
+      const inputItem = document.getElementById('inputItem');
+      const newItem = inputItem.value;
+      itemsArray.push(newItem);
+      inputItem.value = '';
+    });
+    const displayButton = document.getElementById('displayButton');
+    displayButton.addEventListener('click', () => {
+      const itemsList = document.getElementById('itemsList');
+      itemsList.innerHTML = '';
+      itemsArray.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        itemsList.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
+
+
 
 
